@@ -20,8 +20,15 @@ cmake -B build-pico2 -S . -DPICO_BOARD=pico2_w     # regenerates the scripts
 ./bum-ota                                          # wireless OTA (robot.local)
 ```
 
-To develop against a local commander checkout instead of the pinned remote, add
-`-DFETCHCONTENT_SOURCE_DIR_COMMANDER=$HOME/github/commander` to the cmake line.
+### Updating the commander framework
+
+Framework changes live in the commander repo. To adopt the latest into this project,
+**`cmdr pull`** (then rebuild) — the project pins `FetchContent ... GIT_TAG main` and
+builds against the published remote. `cmdr update` updates the cmdr tool itself.
+
+> Don't build against a local commander checkout as a normal workflow — it makes this
+> project silently depend on unpublished commander state. (`-DFETCHCONTENT_SOURCE_DIR_COMMANDER=<path>`
+> exists only as a deliberate, temporary exception for eyeballing an unpushed edit.)
 
 ## Control scheme (Wii U Pro / compatible pad)
 
