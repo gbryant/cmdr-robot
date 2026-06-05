@@ -143,9 +143,9 @@ extern "C" CommanderConfig commander_config() {
     CommanderConfig cfg;
     cfg.wifi_ssid     = WIFI_SSID;
     cfg.wifi_password = WIFI_PASSWORD;
-    cfg.hostname      = "robot";
+    cfg.hostname      = "cmdr-robot";
     cfg.uart_baud     = 115200;
-    cfg.uart_greeting = "robot";
+    cfg.uart_greeting = "cmdr-robot";
     return cfg;
 }
 

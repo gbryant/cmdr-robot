@@ -17,7 +17,7 @@ export PICO_SDK_PATH=~/u-developer/pico-sdk
 export BLUEPAD32_PATH=~/u-developer/bluepad32
 cmake -B build-pico2 -S . -DPICO_BOARD=pico2_w     # regenerates the scripts
 ./bum                                              # build + upload + monitor
-./bum-ota                                          # wireless OTA (robot.local)
+./bum-ota                                          # wireless OTA (cmdr-robot.local)
 ```
 
 ### Updating the commander framework
