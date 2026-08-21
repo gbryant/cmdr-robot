@@ -1,13 +1,19 @@
 # cmdr-robot
 
 A [commander](https://github.com/gbryant/commander) consumer: a Raspberry Pi Pico 2 W
-that drives a Roomba over an I2C bridge (Arduino R4 `loco-bridge`) from a Bluetooth
-game controller, with WiFi + telnet + OTA.
+that drives a Roomba from a Bluetooth game controller, with WiFi + telnet + OTA. It's
+the master half of a two-board robot — the other half is
+[cmdr-oi-bridge](https://github.com/gbryant/cmdr-oi-bridge), an Arduino R4 sitting
+between this board and the Roomba as an I2C→Open Interface bridge. You need both.
 
 Naming: commander-based projects use a `cmdr-` prefix so they don't need to live under
 one umbrella folder.
 
 ## Setup
+
+Prereqs: the Pico SDK, FreeRTOS kernel, and Bluepad32 checkouts — commander's
+[getting-started guide](https://github.com/gbryant/commander/blob/main/docs/getting-started.md)
+bootstraps all of them into `~/u-developer` with one script.
 
 ```bash
 cp secrets.h.example secrets.h     # then fill in your WiFi
@@ -22,13 +28,14 @@ cmake -B build-pico2 -S . -DPICO_BOARD=pico2_w     # regenerates the scripts
 
 ### Updating the commander framework
 
-Framework changes live in the commander repo. To adopt the latest into this project,
-**`cmdr pull`** (then rebuild) — the project pins `FetchContent ... GIT_TAG main` and
-builds against the published remote. `cmdr update` updates the cmdr tool itself.
+This project pins commander to a release tag (the `GIT_TAG` in `CMakeLists.txt`).
+`cmdr pull` re-fetches that same tag, so on its own it changes nothing — to adopt a
+newer release, **`cmdr pin <tag>` then `cmdr pull`** (rebuild after). `cmdr unpin`
+floats on `main` instead; `cmdr update` updates the cmdr tool itself.
 
 > Don't build against a local commander checkout as a normal workflow — it makes this
-> project silently depend on unpublished commander state. (`-DFETCHCONTENT_SOURCE_DIR_COMMANDER=<path>`
-> exists only as a deliberate, temporary exception for eyeballing an unpushed edit.)
+> project silently depend on unpublished commander state. (`cmdr link <path>`
+> exists as a deliberate, temporary exception for framework development.)
 
 ## Control scheme (Wii U Pro / compatible pad)
 

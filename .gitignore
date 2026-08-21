@@ -16,3 +16,6 @@
 # local build counter (version stamp) and OS cruft
 /.build_number
 .DS_Store
+
+# Local publish-prep notes
+PUBLISH_CHECKLIST.md

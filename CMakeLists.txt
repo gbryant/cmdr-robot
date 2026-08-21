@@ -13,7 +13,7 @@ pico_sdk_init()
 include(FetchContent)
 FetchContent_Declare(commander
     GIT_REPOSITORY https://github.com/gbryant/commander.git
-    GIT_TAG        main
+    GIT_TAG        v1.0     # release pin — move with `cmdr pin <tag>`
 )
 set(COMMANDER_ENABLE_CONTROLLER ON CACHE BOOL "" FORCE)  # commander controller
 set(COMMANDER_ENABLE_OTA ON CACHE BOOL "" FORCE)
