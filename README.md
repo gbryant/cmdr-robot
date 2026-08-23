@@ -9,6 +9,16 @@ between this board and the Roomba as an I2C→Open Interface bridge. You need bo
 Naming: commander-based projects use a `cmdr-` prefix so they don't need to live under
 one umbrella folder.
 
+![Two boards mounted on top of a green Roomba: a Raspberry Pi Pico 2 W on a Grove
+carrier at the top, an Arduino Uno R4 WiFi in a clear case below it, joined by
+ribbon cables through a small Grove hub.](docs/img/robot.jpg)
+
+*The two halves in place. Top: the Pico 2 W — Bluetooth pad in, drive commands out.
+Bottom: the Uno R4 WiFi running [cmdr-oi-bridge](https://github.com/gbryant/cmdr-oi-bridge),
+which turns those into Roomba Open Interface commands on `Serial1`. The cables between
+them are the I2C link (Qwiic, 3.3 V) — the Pico is master, the R4 is the slave at
+address 66.*
+
 ## Setup
 
 Prereqs: the Pico SDK, FreeRTOS kernel, and Bluepad32 checkouts — commander's
