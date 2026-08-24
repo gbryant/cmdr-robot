@@ -58,3 +58,7 @@ floats on `main` instead; `cmdr update` updates the cmdr tool itself.
 
 Drive/spin smoothing, calibration, and the controller stack live in commander
 (`modules/locomotion/DriveMixer.h`, `modules/controller/`); this project is the glue.
+
+Hardware-confirmed: a paired pad drives a real Roomba through the I2C bridge, with
+telnet live at the same time — WiFi and Bluetooth share the one CYW43 radio, which
+works because the Pico runner owns a single `cyw43_arch_init()`.
