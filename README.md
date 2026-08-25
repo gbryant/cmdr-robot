@@ -38,7 +38,7 @@ cmake -B build-pico2 -S . -DPICO_BOARD=pico2_w     # configure; also writes ./bu
 The `./bum` scripts aren't in the repo — the cmake line writes them, so run that
 first on a fresh clone.
 
-### Updating the commander framework
+## Updating the commander framework
 
 This project pins commander to a release tag (the `GIT_TAG` in `CMakeLists.txt`).
 `cmdr pull` re-fetches that same tag, so on its own it changes nothing — to adopt a
