@@ -49,7 +49,7 @@ floats on `main` instead; `cmdr update` updates the cmdr tool itself.
 > project silently depend on unpublished commander state. (`cmdr link <path>`
 > exists as a deliberate, temporary exception for framework development.)
 
-## Control scheme (Wii U Pro / compatible pad)
+## Control scheme (Bluetooth gamepad)
 
 - **Left stick Y** — throttle.
 - **Right stick X** — steering (arcs only; never spins).
@@ -57,6 +57,11 @@ floats on `main` instead; `cmdr update` updates the cmdr tool itself.
   speed, **L2** = slow (half) for fine course corrections.
 - **`calibrate`** — interactive stick calibration. **`btforget`** — clear BT pairings.
   **`drivedbg`** — stream raw→calibrated→mixer values (temporary diagnostic).
+
+Any pad Bluepad32 supports should work. A **Wii U Pro** is what this was built and
+tested against, and the stick calibration baked into commander was measured from
+one — so on a different pad, **run `calibrate` once** and it'll re-centre and
+rescale to yours. If a pad won't pair at all, `btforget` clears a stale bond.
 
 Drive/spin smoothing, calibration, and the controller stack live in commander
 (`modules/locomotion/DriveMixer.h`, `modules/controller/`); this project is the glue.
