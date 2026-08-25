@@ -30,16 +30,13 @@ export BLUEPAD32_PATH=~/u-developer/bluepad32
 # PFB_PATH defaults to ~/u-developer/pico_fota_bootloader; FreeRTOS is found as a
 # sibling of PICO_SDK_PATH. Set FREERTOS_KERNEL_PATH / PFB_PATH only if yours
 # live somewhere other than the setup-sdks.sh layout.
-cmake -B build-pico2 -S . -DPICO_BOARD=pico2_w     # also writes the dev scripts
+cmake -B build-pico2 -S . -DPICO_BOARD=pico2_w     # configure; also writes ./bum etc.
 ./bum                                              # build + upload + monitor
 ./bum-ota                                          # wireless OTA (cmdr-robot.local)
 ```
 
-The dev scripts (`bum`/`build`/`upload`/`monitor`/`bum-ota`) are gitignored, so a
-fresh clone starts without them. On pico they come from the **cmake configure step
-above**, not from `cmdr regen` as on the other targets — commander generates them
-via `commander_generate_scripts()` at configure time, which is also why they hold
-absolute paths and shouldn't be committed.
+The `./bum` scripts aren't in the repo — the cmake line writes them, so run that
+first on a fresh clone.
 
 ### Updating the commander framework
 
