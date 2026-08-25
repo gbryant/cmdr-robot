@@ -23,8 +23,9 @@
 //
 // Control scheme: LEFT stick Y = throttle, RIGHT stick X = steering (arcs ONLY —
 // stickSpin off, so a tight turn never trips an unwanted spin). Spin-in-place is on
-// the triggers: hold L2 (CCW) / R2 (CW) and the left stick sets the spin speed; a
-// quick tap nudges the heading.
+// the triggers: hold either shoulder and the LEFT STICK picks the direction
+// (forward = CW, back = CCW), while the trigger picks the speed — R2 normal, L2
+// slow (half) for fine corrections. See the spin block in the drive ticker below.
 static DriveMixer _mixer = [] {
     DriveMixer::Config c;
     c.stickSpin = false;

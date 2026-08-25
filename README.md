@@ -57,7 +57,7 @@ floats on `main` instead; `cmdr update` updates the cmdr tool itself.
 
 ## Control scheme (Wii U Pro / compatible pad)
 
-- **Left stick** — drive: Y = throttle, X is on the right stick.
+- **Left stick Y** — throttle.
 - **Right stick X** — steering (arcs only; never spins).
 - **Hold L2/R2** — spin in place: left stick forward = CW, back = CCW. **R2** = normal
   speed, **L2** = slow (half) for fine course corrections.
