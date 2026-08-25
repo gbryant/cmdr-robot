@@ -6,9 +6,6 @@ the master half of a two-board robot — the other half is
 [cmdr-oi-bridge](https://github.com/gbryant/cmdr-oi-bridge), an Arduino R4 sitting
 between this board and the Roomba as an I2C→Open Interface bridge. You need both.
 
-Naming: commander-based projects use a `cmdr-` prefix so they don't need to live under
-one umbrella folder.
-
 ![Two boards mounted on top of a green Roomba: a Raspberry Pi Pico 2 W on a Grove
 carrier at the top, an Arduino Uno R4 WiFi in a clear case below it, joined by
 ribbon cables through a small Grove hub.](docs/img/robot.jpg)
